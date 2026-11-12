@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Battambang', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar for clean library aesthetic */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F7F5F1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D4CCF7;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6C55D9;
+  }
+}
+
+/* Reader Themes */
+.reader-theme-light {
+  background-color: #FFFFFF !important;
+  color: #242424 !important;
+}
+
+.reader-theme-sepia {
+  background-color: #F4ECD8 !important;
+  color: #433422 !important;
+}
+
+.reader-theme-sepia .reader-card {
+  background-color: #EAE0C8 !important;
+  border-color: #DDD1B6 !important;
+}
+
+.reader-theme-dark {
+  background-color: #121214 !important;
+  color: #E4E4E7 !important;
+}
+
+.reader-theme-dark .reader-card {
+  background-color: #1E1E22 !important;
+  border-color: #2E2E34 !important;
+}

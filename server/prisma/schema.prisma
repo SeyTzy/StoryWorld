@@ -1,0 +1,155 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum StoryStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model User {
+  id               String           @id @default(uuid())
+  name             String
+  email            String           @unique
+  password         String
+  role             Role             @default(USER)
+  avatar           String?
+  isActive         Boolean          @default(true)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  bookmarks        Bookmark[]
+  readingHistories ReadingHistory[]
+  comments         Comment[]
+  ratings          Rating[]
+
+  @@map("users")
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  stories     Story[]
+
+  @@map("categories")
+}
+
+model Story {
+  id               String           @id @default(uuid())
+  categoryId       String
+  category         Category         @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  title            String
+  slug             String           @unique
+  author           String
+  description      String           @db.Text
+  coverImage       String?
+  status           StoryStatus      @default(PUBLISHED)
+  views            Int              @default(0)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  chapters         Chapter[]
+  bookmarks        Bookmark[]
+  readingHistories ReadingHistory[]
+  comments         Comment[]
+  ratings          Rating[]
+
+  @@index([categoryId])
+  @@index([status])
+  @@index([views])
+  @@map("stories")
+}
+
+model Chapter {
+  id               String           @id @default(uuid())
+  storyId          String
+  story            Story            @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  chapterNumber    Int
+  title            String
+  content          String           @db.Text
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  readingHistories ReadingHistory[]
+
+  @@unique([storyId, chapterNumber])
+  @@index([storyId])
+  @@map("chapters")
+}
+
+model Bookmark {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  storyId   String
+  story     Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, storyId])
+  @@index([userId])
+  @@index([storyId])
+  @@map("bookmarks")
+}
+
+model ReadingHistory {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  storyId    String
+  story      Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  chapterId  String
+  chapter    Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  progress   Float    @default(0)
+  lastReadAt DateTime @default(now())
+
+  @@unique([userId, storyId])
+  @@index([userId])
+  @@index([storyId])
+  @@map("reading_histories")
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  storyId   String
+  story     Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([storyId])
+  @@index([userId])
+  @@map("comments")
+}
+
+model Rating {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  storyId   String
+  story     Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  rating    Int      @default(5)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, storyId])
+  @@index([storyId])
+  @@index([userId])
+  @@map("ratings")
+}
