@@ -51,13 +51,13 @@ export const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-2.5 text-sm text-[#777777]">
               <li>
-                <Link to="/explore?category=folktales" className="hover:text-[#6C55D9] transition-colors">រឿងនិទានខ្មែរ</Link>
+                <Link to="/explore?category=donghou" className="hover:text-[#6C55D9] transition-colors">រឿងនិទាន Novel</Link>
               </li>
               <li>
-                <Link to="/explore?category=romance" className="hover:text-[#6C55D9] transition-colors">រឿងស្នេហា</Link>
+                <Link to="/explore?category=manhwa" className="hover:text-[#6C55D9] transition-colors">រឿងនិទាន Manhwa</Link>
               </li>
               <li>
-                <Link to="/explore?category=history" className="hover:text-[#6C55D9] transition-colors">រឿងប្រវត្តិសាស្ត្រ</Link>
+                <Link to="/explore?category=mystery" className="hover:text-[#6C55D9] transition-colors">រឿងអាថ៌កំបាំង</Link>
               </li>
               <li>
                 <Link to="/explore?category=education" className="hover:text-[#6C55D9] transition-colors">រឿងអប់រំ និងទស្សនវិជ្ជា</Link>

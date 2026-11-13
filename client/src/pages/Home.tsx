@@ -59,17 +59,17 @@ export const Home: React.FC = () => {
             {/* Left Hero Content */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9E5FA] text-[#6C55D9] text-xs font-semibold tracking-wide">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>គេហទំព័រអានរឿងខ្មែរទំនើបលេខ ១</span>
+                {/* <Sparkles className="w-3.5 h-3.5" /> */}
+                <span>គេហទំព័រអានរឿងជាភាសារខ្មែរទំនើបលេខ ១</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#242424] leading-tight font-khmerTitle">
-                ស្វែងរកពិភពរឿងខ្មែរ <br />
-                <span className="text-[#6C55D9]">រីករាយនឹងការអាន</span> គ្រប់ពេលវេលា
+                សូមស្វាគមន៍ <br />
+                <span className="text-[#6C55D9]">មកកាន់ពិភព​ </span> Novel
               </h1>
 
               <p className="text-base sm:text-lg text-[#777777] max-w-xl mx-auto lg:mx-0 leading-relaxed font-khmer">
-                ប្រមូលផ្តុំរឿងនិទានបុរាណខ្មែរ រឿងប្រលោមលោក រឿងខ្លី និងរឿងអប់រំជាច្រើនសម្បូរបែប ជាមួយនឹងផ្ទាំងអានដ៏ស្រួលភ្នែក និងមានផាសុកភាពបំផុត។
+                ប្រមូលផ្តុំរឿងប្រលោមលោក រឿងខ្លី និងរឿងអប់រំជាច្រើនសម្បូរបែប ជាមួយនឹងផ្ទាំងទស្សនីយភាព​ ត្រជាក់ភ្នែកក្នុងការអាន។
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
@@ -112,7 +112,7 @@ export const Home: React.FC = () => {
               <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-3xl bg-white p-4 shadow-card border border-[#EAEAEA]">
                 <div className="w-full h-full rounded-2xl overflow-hidden relative group">
                   <img
-                    src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop"
+                    src="https://m.media-amazon.com/images/M/MV5BNzA4NDNhYWMtYTdiYS00MmZjLTlmNTQtMTUwZDE2YzZjMTlhXkEyXkFqcGc@._V1_.jpg"
                     alt="StoryWorld Editorial Showcase"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -189,7 +189,7 @@ export const Home: React.FC = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold text-[#6C55D9] mb-1">
-              <Sparkles className="w-4 h-4" />
+              {/* <Sparkles className="w-4 h-4" /> */}
               <span>រឿងណែនាំពិសេស</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#242424] font-khmerTitle">
