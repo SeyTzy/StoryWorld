@@ -64,7 +64,7 @@ export const Home: React.FC = () => {
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#242424] leading-tight font-khmerTitle">
                 សូមស្វាគមន៍ <br />
-                <span className="text-[#6C55D9]">មកកាន់ពិភព​ </span> Novel
+                <span className="text-[#6C55D9]">មកកាន់ពិភពនិទាន​ </span> Novel
               </h1>
 
               <p className="text-base sm:text-lg text-[#777777] max-w-xl mx-auto lg:mx-0 leading-relaxed font-khmer">
